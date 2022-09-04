@@ -3,10 +3,10 @@ package oop.general;
 public final class ISBNGenerator {
 
     private static volatile ISBNGenerator instance;
-    private long isbn;
-    private ISBNGenerator() {
-        isbn = 5768346335L;
-    }
+    private long isbn = 5768346335L;
+
+    private ISBNGenerator() {}
+
     public static ISBNGenerator getDefault() {
         if (instance == null) {
             synchronized (ISBNGenerator.class) {
