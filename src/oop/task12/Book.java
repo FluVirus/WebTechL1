@@ -1,17 +1,21 @@
 package oop.task12;
 
+import oop.general.ISBNGenerator;
+
 import java.util.Objects;
 
-public class Book {
+public class Book implements Cloneable, Comparable<Book> {
     private String title;
     private String author;
     private int price;
+    private long isbn;
     private static int edition;
 
     public Book (String title, String author, int price) {
         this.author = author;
         this.title = title;
         this.price = price;
+        this.isbn = ISBNGenerator.getDefault().getISBN();
     }
 
     @Override
@@ -26,6 +30,18 @@ public class Book {
         return price == book.price && title.equals(book.title) && author.equals(book.author);
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(title, author, price);
@@ -34,5 +50,15 @@ public class Book {
     @Override
     public String toString() {
         return "Book \"" + title + "\" by " + author + ", price " + price;
+    }
+
+    @Override
+    public Book clone() {
+        return new Book(title, author, price);
+    }
+
+    @Override
+    public int compareTo(Book another) {
+        return Long.compare(isbn, another.isbn);
     }
 }
