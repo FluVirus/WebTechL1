@@ -34,6 +34,6 @@ public class ProgrammerBook extends Book {
 
     @Override
     public String toString() {
-        return language + ", level " + level + ", " + super.toString();
+        return "[" + language + ", level " + level + "] " + super.toString();
     }
 }

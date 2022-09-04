@@ -6,8 +6,13 @@ import fundamentals.task5.SequenceAnalyzer;
 import fundamentals.task6.MatrixComposer;
 import fundamentals.task7.Sortings;
 import fundamentals.task8.SequenceDawdler;
-import oop.task9.Ball;
-import oop.task9.BallBasket;
+import oop.task12.Book;
+import oop.task13.ProgrammerBook;
+import oop.task15.BookAuthorTitleComparator;
+import oop.task15.BookAuthorTitlePriceComparator;
+import oop.task15.BookTitleAuthorComparator;
+import oop.task15.BookTitleComparator;
+import oop.task9.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -26,6 +31,14 @@ public class Main {
     private static final double[] TASK_7_ARRAY = new double[]{14, 1, 13, 10, -3, 18, 0, 19};
     private static final double[] TASK_8_SEQUENCE_A = new double[]{1, 10, 20, 30, 40, 45, 50, 55, 60};
     private static final double[] TASK_8_SEQUENCE_B = new double[]{5.1, 6.1, 7.1, 11.1, 12.1, 13.1, 42.1, 46.1};
+    private static final Book[] TASK_14_BOOK_SEQUENCE = new Book[] {
+            new Book("Людзі на балоце", "Іван Мележ", 225),
+            new Book("Хрыстос прызямліўуся ў Гародне", "Уладзімір Караткевіч", 190),
+            new ProgrammerBook("HTML 5 для профессионалов", "Брюс Лоусон", 300, "HTML", 80),
+            new ProgrammerBook("Mastering Delphi 7","Marco Cantu",275,"Delphi", 80),
+            new Book("Леаніды не вернуцца да Зямлі","Уладзімір Караткевіч", 230),
+            new ProgrammerBook("Effective Modern C++","Scott Meyers", 330, "C++", 45)
+    };
 
     public static void main(String[] args) {
 
@@ -118,6 +131,30 @@ public class Main {
         out.println("Total weight of balls: " + weight);
         out.println("Total numbers of blue balls: " + numberOfBlues);
 
+        out.println("------Task 14-----");
+        out.println("Initial sequence:");
+        Arrays.stream(TASK_14_BOOK_SEQUENCE).forEach(out::println);
+        out.println();
+        out.println("Sorted by default(isbn) sequence:");
+        Arrays.sort(TASK_14_BOOK_SEQUENCE);
+        Arrays.stream(TASK_14_BOOK_SEQUENCE).forEach(out::println);
+        out.println();
+        out.println("Sorted by title sequence:");
+        Arrays.sort(TASK_14_BOOK_SEQUENCE, new BookTitleComparator());
+        Arrays.stream(TASK_14_BOOK_SEQUENCE).forEach(out::println);
+        out.println();
+        out.println("Sorted by title, author sequence:");
+        Arrays.sort(TASK_14_BOOK_SEQUENCE, new BookTitleAuthorComparator());
+        Arrays.stream(TASK_14_BOOK_SEQUENCE).forEach(out::println);
+        out.println();
+        out.println("Sorted by author, title sequence:");
+        Arrays.sort(TASK_14_BOOK_SEQUENCE, new BookAuthorTitleComparator());
+        Arrays.stream(TASK_14_BOOK_SEQUENCE).forEach(out::println);
+        out.println();
+        out.println("Sorted by author, title, price sequence:");
+        Arrays.sort(TASK_14_BOOK_SEQUENCE, new BookAuthorTitlePriceComparator());
+        Arrays.stream(TASK_14_BOOK_SEQUENCE).forEach(out::println);
+        out.println();
 
         out.println("------XXXXX------");
 

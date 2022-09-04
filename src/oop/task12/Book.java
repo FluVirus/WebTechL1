@@ -18,6 +18,11 @@ public class Book implements Cloneable, Comparable<Book> {
         this.isbn = ISBNGenerator.getDefault().getISBN();
     }
 
+    protected Book (String title, String author, int price, long isbn) {
+        this(title, author, price);
+        this.isbn = isbn;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -42,6 +47,10 @@ public class Book implements Cloneable, Comparable<Book> {
         return price;
     }
 
+    protected long getIsbn() {
+        return isbn;
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(title, author, price);
@@ -49,12 +58,12 @@ public class Book implements Cloneable, Comparable<Book> {
 
     @Override
     public String toString() {
-        return "Book \"" + title + "\" by " + author + ", price " + price;
+        return "Book \"" + title + "\" by " + author + ", price " + price + " (isbn: " + isbn + ")";
     }
 
     @Override
     public Book clone() {
-        return new Book(title, author, price);
+        return new Book(title, author, price, isbn);
     }
 
     @Override
