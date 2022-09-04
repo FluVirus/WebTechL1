@@ -19,7 +19,7 @@ public final class ISBNGenerator {
     }
 
     public long getISBN() {
-        return isbn++;
+        return isbn++ % Long.MAX_VALUE;
     }
 
 }
