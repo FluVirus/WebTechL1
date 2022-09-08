@@ -1,6 +1,6 @@
 package lul.university.webtech.lab1.oop.task9.task12;
 
-import lul.university.webtech.lab1.general.ISBNGenerator;
+import lul.university.webtech.lab1.oop.general.ISBNGenerator;
 
 import java.util.Objects;
 

@@ -1,4 +1,4 @@
-package lul.university.webtech.lab1.general;
+package lul.university.webtech.lab1.oop.general;
 
 public final class ISBNGenerator {
 
